@@ -3,13 +3,14 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import './index.css'
+import Users from './Users';
 
 
 const router = createBrowserRouter([{
 
   path : "/",
 
-  element:<div>Helllo Router</div>
+  element:<Users></Users>
 
 }])
 
