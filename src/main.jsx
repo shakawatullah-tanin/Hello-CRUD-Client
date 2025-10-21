@@ -6,7 +6,7 @@ import './index.css'
 import App from './Components/App';
 import UserDetails from './Components/UserDetails';
 import Home from './Components/Home';
-import Users from './Components/Users';
+import UpdateUser from './Components/UpdateUser';
 
 
 const router = createBrowserRouter([{
@@ -29,6 +29,13 @@ const router = createBrowserRouter([{
       fetch(`http://localhost:5006/users/${params.id}`)
     ,
     Component :UserDetails
+  },
+  {
+    path : "/update/:id",
+
+    loader : ({params})=>fetch(`http://localhost:5006/users/${params.id}`),
+    Component : UpdateUser
+
   }
 ]
   
