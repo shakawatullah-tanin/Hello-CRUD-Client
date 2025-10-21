@@ -5,6 +5,7 @@ import { RouterProvider } from "react-router/dom";
 import './index.css'
 import Users from './Users';
 import App from './App';
+import User from './User';
 
 
 const router = createBrowserRouter([{
@@ -16,16 +17,16 @@ const router = createBrowserRouter([{
 },
 
 {
-  children :[{
+  // children :[{
 
-    index : true,
-
-
-    element : <App></App>
+  //   index : true,
 
 
+  //   element : <User></User>
 
-  }]
+
+
+  // }]
 }
 ])
 
