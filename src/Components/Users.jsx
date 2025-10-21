@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import User from "./User";
+import { Link } from "react-router";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -7,7 +8,7 @@ const Users = () => {
     fetch("http://localhost:5006/users")
       .then((res) => res.json())
       .then((data) => {
-        const newUsers = data.data.users;
+        const newUsers = data;
         setUsers(newUsers);
       });
   }, []);
@@ -95,9 +96,11 @@ const Users = () => {
       {users.map((user) => (
         <>
           <User key={user._id} user={user}></User>
+          <Link to={`/users/${user._id}`}>Details</Link>
           <button onClick={() => handleDelete(user._id)} className="btn">
             x
           </button>
+          
         </>
       ))}
     </div>

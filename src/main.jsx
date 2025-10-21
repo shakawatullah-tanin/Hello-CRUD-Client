@@ -3,31 +3,38 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import './index.css'
-import Users from './Users';
-import App from './App';
-import User from './User';
+import App from './Components/App';
+import UserDetails from './Components/UserDetails';
+import Home from './Components/Home';
+import Users from './Components/Users';
 
 
 const router = createBrowserRouter([{
 
   path : "/",
 
-  element:<Users></Users>,
+  element:<App></App>,
+  children : [{
+
+    index :true ,
+
+    Component : Home
+
+    
+  },
+
+  {
+    path : "/users/:id",
+    loader : ({params})=>
+      fetch(`http://localhost:5006/users/${params.id}`)
+    ,
+    Component :UserDetails
+  }
+]
   
 },
 
-{
-  // children :[{
 
-  //   index : true,
-
-
-  //   element : <User></User>
-
-
-
-  // }]
-}
 ])
 
 createRoot(document.getElementById('root')).render(

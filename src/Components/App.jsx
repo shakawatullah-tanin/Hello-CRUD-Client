@@ -1,22 +1,13 @@
 
-import './App.css'
-import User from './User'
+import { Outlet } from 'react-router'
 import Users from './Users'
+import Home from './Home'
 
 function App() {
 
-  
-
-
- 
-
-
- 
-
   return (
     <>
-
-    <Users></Users>
+    <Outlet></Outlet>
     </>
   )
 }
